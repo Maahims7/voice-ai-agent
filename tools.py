@@ -299,7 +299,7 @@ def _call_ollama(prompt: str, system: str = "") -> str | None:
                 "prompt": full_prompt,
                 "stream": False,
             },
-            timeout=60,  # LLM responses can take time
+            timeout=(10, 180),  # connect/read timeout for slower local model inference
         )
 
         if response.status_code == 200:

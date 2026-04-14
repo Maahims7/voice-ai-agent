@@ -124,7 +124,7 @@ def _classify_with_ollama(text: str) -> dict:
         response = requests.post(
             f"{ollama_url}/api/generate",
             json=payload,
-            timeout=30,  # 30-second timeout
+            timeout=(10, 180),  # connect/read timeout for slower local model inference
         )
 
         if response.status_code != 200:
