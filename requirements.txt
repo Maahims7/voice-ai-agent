@@ -1,0 +1,48 @@
+# ============================================================
+# Voice-Controlled Local AI Agent - Requirements
+# ============================================================
+# Install all dependencies:
+#   pip install -r requirements.txt
+#
+# For Whisper (local STT):
+#   pip install openai-whisper
+#   (also requires: ffmpeg installed on your system)
+#
+# For Groq API fallback STT:
+#   pip install groq
+#
+# For Ollama (local LLM):
+#   Install from https://ollama.com
+#   Then run: ollama pull llama3
+# ============================================================
+
+# ---- Core UI ----
+streamlit>=1.32.0
+
+# ---- Speech-to-Text (Local) ----
+openai-whisper>=20231117    # Local Whisper model (requires ffmpeg)
+torch>=2.0.0                # Required by Whisper
+torchaudio>=2.0.0           # Audio processing
+
+# ---- Speech-to-Text (API Fallback) ----
+groq>=0.4.0                 # Groq API client for cloud Whisper
+
+# ---- HTTP Requests (for Ollama API) ----
+requests>=2.31.0
+
+# ---- Audio Recording / Processing ----
+sounddevice>=0.4.6          # Microphone recording
+scipy>=1.11.0               # Audio file handling
+numpy>=1.24.0               # Numerical operations
+
+# ---- Utilities ----
+python-dotenv>=1.0.0        # Load .env environment variables
+pathlib2>=2.3.7             # Path handling (Python < 3.10 compat)
+
+# ============================================================
+# SYSTEM DEPENDENCIES (install separately):
+#
+# macOS:   brew install ffmpeg portaudio
+# Ubuntu:  sudo apt install ffmpeg portaudio19-dev
+# Windows: winget install ffmpeg  (or download from ffmpeg.org)
+# ============================================================

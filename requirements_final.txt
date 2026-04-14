@@ -1,0 +1,57 @@
+# ============================================================
+# Voice-Controlled Local AI Agent - Requirements
+# ============================================================
+#
+# Install with: pip install -r requirements.txt
+#
+# FOR PRODUCTION:
+#   - Ollama (local LLM): https://ollama.com
+#   - Pull model: ollama pull llama3
+#   - Run server: ollama serve
+#
+# For development/troubleshooting:
+#   - Groq API (cloud fallback): Get key from https://console.groq.com
+#   - Set environment: export GROQ_API_KEY="gsk_..."
+#
+# ============================================================
+
+# ---- Streamlit Web UI ----
+streamlit==1.40.1
+
+# ---- Speech-to-Text (Local) ----
+openai-whisper==20240930       # Local Whisper model for offline STT
+torch==2.1.2                   # PyTorch (required by Whisper)
+torchaudio==2.1.2              # Audio processing (required by Whisper)
+
+# ---- Speech-to-Text (API Fallback) ----
+groq==0.10.0                   # Groq API client for cloud Whisper fallback
+
+# ---- HTTP & API Requests ----
+requests==2.32.3               # HTTP client for Ollama API
+
+# ---- Audio Recording & Processing ----
+sounddevice==0.4.7             # Microphone input
+scipy==1.14.1                  # Audio signal processing
+numpy==1.24.4                  # Numerical operations
+
+# ---- Utilities ----
+python-dotenv==1.0.1           # Load .env environment variables
+pathlib2==2.3.7                # Enhanced path handling (Python < 3.10 compat)
+
+# ============================================================
+# SYSTEM DEPENDENCIES - Install separately:
+#
+# Windows (command line):
+#   winget install ffmpeg
+#   OR download from: https://ffmpeg.org/download.html
+#
+# macOS:
+#   brew install ffmpeg portaudio
+#
+# Ubuntu/Debian:
+#   sudo apt-get install ffmpeg portaudio19-dev
+#
+# RHEL/CentOS:
+#   sudo yum install ffmpeg portaudio-devel
+#
+# ============================================================
